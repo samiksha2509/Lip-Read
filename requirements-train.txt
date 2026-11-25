@@ -1,0 +1,6 @@
+# Training (Google Colab already has TensorFlow, NumPy, pandas, matplotlib)
+tensorflow>=2.16
+numpy>=1.26
+opencv-python>=4.8,<5
+pandas
+matplotlib
