@@ -232,7 +232,3 @@ val WER 0.124  CER 0.051
 2. M. Cooke, J. Barker, S. Cunningham, X. Shao — *An audio-visual corpus for speech perception and automatic speech recognition* (GRID corpus), JASA, 2006.
 3. A. Graves, S. Fernández, F. Gomez, J. Schmidhuber — *Connectionist Temporal Classification*, ICML 2006.
 4. S. Hochreiter, J. Schmidhuber — *Long Short-Term Memory*, Neural Computation, 1997.
-
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
