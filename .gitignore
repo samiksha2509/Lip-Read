@@ -4,5 +4,4 @@ __pycache__/
 venv/
 data/
 *.zip
-# trained weights are small (~15 MB) and fine to commit; uncomment to exclude
-# models/*.h5
+
