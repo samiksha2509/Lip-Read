@@ -1,4 +1,4 @@
-<h1 align="center">👄 LipRead</h1>
+<h1 align="center"> LipRead</h1>
 <p align="center"><b>Lip Reading using 3D CNN and Bi-LSTM</b></p>
 <p align="center">Turn silent lip movement into text — no audio needed.</p>
 
