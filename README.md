@@ -1,4 +1,4 @@
-<h1 align="center"> LipRead</h1>
+<h1 align="center">LipRead</h1>
 <p align="center"><b>Lip Reading using 3D CNN and Bi-LSTM</b></p>
 <p align="center">Turn silent lip movement into text — no audio needed.</p>
 
@@ -35,7 +35,7 @@ A **3D Convolutional Neural Network** learns how the lips move across neighbouri
 - 🔤 **Best-match correction** that snaps predictions to valid GRID sentences
 - 📊 Confidence score and a preview of the mouth frames the model saw
 - 🌐 **REST API** for integration with other apps
-- ☁️ **One-command deployment** to Google Cloud Run (Docker)
+- ☁️ **Ready to deploy** on Google Cloud Run (Docker)
 - 📓 **Google Colab notebook** to train on a free GPU
 
 ## 🏗️ Architecture
@@ -79,6 +79,7 @@ A **3D Convolutional Neural Network** learns how the lips move across neighbouri
 ```
 lipreading-app/
 ├── lipnet/
+│   ├── __init__.py
 │   ├── config.py           # frame count, crop size, vocabulary, GRID grammar
 │   ├── preprocess.py       # video → face detection → mouth crops → normalisation
 │   ├── model.py            # 3D CNN + Bi-LSTM network and CTC loss
@@ -96,12 +97,14 @@ lipreading-app/
 ├── predict.py              # command-line prediction
 ├── Dockerfile              # container for Google Cloud Run
 ├── requirements.txt        # app dependencies
-└── requirements-train.txt  # training dependencies
+├── requirements-train.txt  # training dependencies
+├── LICENSE                 # MIT license
+└── README.md
 ```
 
 ## 📊 Dataset
 
-**GRID audio-visual sentence corpus** — 34 speakers × 1,000 sentences, 3 seconds each at 25 fps.
+**GRID audio-visual sentence corpus** — 34 speakers (33 with video) × 1,000 sentences, 3 seconds each at 25 fps.
 Every sentence follows a fixed 6-word grammar:
 
 | command | colour | preposition | letter | digit | adverb |
@@ -127,7 +130,7 @@ pip install -r requirements-train.txt
 pip install flask pytest
 ```
 
-> Use **Python 3.11**. Install **FFmpeg** for best webcam support (`winget install ffmpeg` / `brew install ffmpeg`).
+> Use **Python 3.11**. Install **FFmpeg** for best webcam support (`winget install Gyan.FFmpeg` / `brew install ffmpeg`).
 
 ### 2. Train the model
 
@@ -199,14 +202,15 @@ gcloud run deploy lipread --source . --region asia-south1 \
 
 **`GET /healthz`** → `{"status": "ok", "model_loaded": true}`
 
-## 📈 Results
+## 📈 Evaluation
 
-Results on held-out GRID clips are printed during training and saved to `models/training_log.csv`.
+The model is evaluated on held-out GRID clips using **Word Error Rate (WER)** and **Character Error Rate (CER)**. Both are printed after every training epoch together with sample predictions, and saved to `models/training_log.csv`. Example of the output format:
 
-| Model | Speakers | WER | CER |
-|---|---|---|---|
-| 3D CNN + Bi-LSTM | s1 | *add yours* | *add yours* |
-| 3D CNN + Bi-LSTM + best-match correction | s1 | *add yours* | — |
+```
+val WER 0.124  CER 0.051
+  true: 'bin blue at f two now'
+  pred: 'bin blue at f two now'
+```
 
 ## ⚠️ Limitations
 
@@ -229,3 +233,6 @@ Results on held-out GRID clips are printed during training and saved to `models/
 3. A. Graves, S. Fernández, F. Gomez, J. Schmidhuber — *Connectionist Temporal Classification*, ICML 2006.
 4. S. Hochreiter, J. Schmidhuber — *Long Short-Term Memory*, Neural Computation, 1997.
 
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
