@@ -1,14 +1,3 @@
-"""Flask web app: upload a video or record from the webcam -> predicted sentence.
-
-Run locally:   python main.py               (http://localhost:8080)
-Production:    gunicorn main:app            (used by the Dockerfile / Cloud Run)
-
-Environment variables
-  WEIGHTS_PATH   path to trained weights   (default models/lipnet.weights.h5)
-  WEIGHTS_URL    optional public URL to download weights from at startup
-                 (e.g. a public Google Cloud Storage object) if the file is absent
-  MAX_UPLOAD_MB  upload size limit         (default 25)
-"""
 from __future__ import annotations
 
 import base64
