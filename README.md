@@ -229,6 +229,3 @@ Results on held-out GRID clips are printed during training and saved to `models/
 3. A. Graves, S. Fernández, F. Gomez, J. Schmidhuber — *Connectionist Temporal Classification*, ICML 2006.
 4. S. Hochreiter, J. Schmidhuber — *Long Short-Term Memory*, Neural Computation, 1997.
 
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
