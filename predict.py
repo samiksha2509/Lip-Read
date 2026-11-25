@@ -1,4 +1,3 @@
-"""Command-line inference: python predict.py path/to/video.mp4 [--grid]"""
 import argparse
 
 from lipnet.decode import ctc_greedy_decode, grid_correct
