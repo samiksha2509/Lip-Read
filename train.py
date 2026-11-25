@@ -1,19 +1,3 @@
-"""Train the 3D CNN + Bi-LSTM lip-reading model on the GRID corpus.
-
-Examples
---------
-  # 1. preprocess speaker s1 (face detection + mouth crops, cached as .npz)
-  python train.py --raw data/raw --speakers s1 --prepare-only
-
-  # 2. train (on Google Colab with a GPU this takes roughly 1-2 hours for s1)
-  python train.py --raw data/raw --speakers s1 --epochs 60
-
-  # 3. export a few validation clips as demo samples for the web app
-  python train.py --raw data/raw --speakers s1 --export-samples 4 --epochs 0
-
-The best weights are written to models/lipnet.weights.h5, which is the file
-the web app (main.py) loads.
-"""
 from __future__ import annotations
 
 import argparse
